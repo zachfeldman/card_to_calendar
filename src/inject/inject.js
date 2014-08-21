@@ -4,8 +4,8 @@ chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
 
     function parse_date(date, time){
       var parsed_date_step_one = moment(date + " " + time).format();
-      var parsed_date_step_two = parsed_date_step_one.replace(/-/g, "").replace(/:/g, "");
-      return parsed_date_step_two.substring(0,parsed_date_step_two.length-4);
+      var parsed_date_step_two = parsed_date_step_one.replace(/-/g, "").replace(/:/g, "")
+      return parsed_date_step_two.substring(0,parsed_date_step_two.length-4).replace("+", "");;
     }
 
     function parse_flight_container(flight_container){
