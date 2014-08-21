@@ -10,14 +10,14 @@
     "128": "icons/icon128.png"
   },
   "default_locale": "en",
-  "page_action": {
-    "default_icon": "icons/icon19.png",
-    "default_title": "page action demo",
-    "default_popup": "src/page_action/page_action.html"
-  },
   "permissions": [
+    "tabs",
     "*://mail.google.com/*"
   ],
+  "background" : {
+    "scripts" : ["src/background/background.js"],
+    "persistent" : false
+  },
   "content_scripts": [
     {
       "matches": [
@@ -25,8 +25,12 @@
       ],
       "js": [
         "src/inject/moment.min.js",
+        "src/inject/jquery-1.11.1.min.js",
         "src/inject/inject.js"
       ]
     }
-  ]
+  ],
+  "browser_action" : {
+    "default_icon": "icons/icon19.png"
+  }
 }
